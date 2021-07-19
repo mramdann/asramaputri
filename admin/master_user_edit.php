@@ -1,9 +1,13 @@
 <?php
+
 include "_header.php";
 include "_menu.php";
 include "../koneksi.php";
 
 // syntax untuk menyimpan data ke database
+
+
+
 $id = $_GET['id'];
 if (isset($_POST['simpan'])) {
     $username = $_POST['username'];
@@ -24,21 +28,16 @@ if (isset($_POST['simpan'])) {
 ?>
 
 
-
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>EDIT USER USER</h2>
+            <h2>EDIT DATA USER</h2>
         </div>
 
         <div class="row clearfix">
             <!-- Table User -->
             <div class="card">
-                <div class="header">
 
-
-
-                </div>
                 <div class="body">
 
                     <?php
