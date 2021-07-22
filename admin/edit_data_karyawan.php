@@ -98,7 +98,8 @@ if (isset($_POST['simpan'])) {
 
                             <div class="modal-footer">
                                 <button type="submit" name="simpan" class="btn btn-link waves-effect">SIMPAN</button>
-                                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                                <a href="data_karyawan.php"> <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button></a>
+
                             </div>
                         </form>
                     <?php } ?>

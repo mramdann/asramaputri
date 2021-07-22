@@ -10,10 +10,9 @@ if (isset($_POST['simpan'])) {
 	$nama_user = $_POST['nama_user'];
 
 	$query = $koneksi->query("INSERT INTO tbl_user (username, pass, nama_user) VALUES ('$username','$pass','$nama_user')");
-	print_r($query);
-	// echo "<script>alert('Login Berhasil ! ...')</script>";
-	//    echo "<script>location='admin/'</script>";
-
+	// print_r($query);
+	echo "<script>alert('data berhasil di tambahkan ! ...')</script>";
+	echo "<script>location='master_user.php'</script>";
 }
 ?>
 
@@ -88,8 +87,15 @@ if (isset($_POST['simpan'])) {
 							</thead>
 							<tbody>
 								<?php
+								$jumlahDataPerpage = 5;
+								$result = mysqli_query($koneksi, "SELECT * FROM tbl_user ");
+								$jumlah_data = mysqli_num_rows($result);
+								$jumlahHalaman = ceil($jumlah_data / $jumlahDataPerpage);
+								$halamanAktif = (isset($_GET["p"])) ? $_GET["p"] : 1;
+								$awalData = ($jumlahDataPerpage * $halamanAktif) - $jumlahDataPerpage;
+
 								$no = 1;
-								$sql = $koneksi->query("select * from tbl_user");
+								$sql = $koneksi->query("select * from tbl_user LIMIT $awalData, $jumlahDataPerpage");
 								while ($data = $sql->fetch_assoc()) {
 									# code...
 								?>
@@ -112,6 +118,35 @@ if (isset($_POST['simpan'])) {
 							</tbody>
 						</table>
 					</div>
+
+					<nav aria-label="Page navigation example">
+						<ul class="pagination center">
+
+
+							<li class="page-item">
+								<?php if ($halamanAktif > 1) : ?>
+									<a class="page-link" href="?p=<?= $halamanAktif - 1; ?>" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								<?php endif; ?>
+							</li>
+
+							<?php for ($i = 1; $i <= $jumlahDataPerpage; $i++) :  ?>
+								<li class="page-item"><a class="page-link" href="?p=<?= $i; ?>"><?= $i; ?></a></li>
+							<?php endfor; ?>
+
+							<li class="page-item">
+								<?php if ($halamanAktif < $jumlahDataPerpage) : ?>
+									<a class="page-link" href="?p=<?= $halamanAktif + 1; ?>" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								<?php endif; ?>
+							</li>
+
+
+						</ul>
+					</nav>
+
 				</div>
 
 			</div>

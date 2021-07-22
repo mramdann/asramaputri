@@ -5,31 +5,31 @@ include "../koneksi.php";
 
 // syntax untuk menyimpan data ke database
 if (isset($_POST['simpan'])) {
-    $nama = $_POST['nama'];
-    $jenis_kelamin = $_POST['jenis_kelamin'];
-    $nik = $_POST['nik'];
-    $jabatan = $_POST['jabatan'];
-    $alamat = $_POST['alamat'];
-    $tlp = $_POST['tlp'];
+    $no_mes = $_POST['no_mes'];
+    $no_kamar = $_POST['no_kamar'];
+    $kapasitas = $_POST['kapasitas'];
+    $lokasi = $_POST['lokasi'];
 
-    $query = $koneksi->query("INSERT INTO tbl_karyawan (nama, jenis_kelamin, nik, jabatan, alamat, tlp) VALUES ('$nama','$jenis_kelamin','$nik','$jabatan','$alamat','$tlp')");
+
+
+    $query = $koneksi->query("INSERT INTO tbl_mess (no_mes, no_kamar, kapasitas, lokasi) VALUES ('$no_mes','$no_kamar','$kapasitas','$lokasi')");
     // print_r($query);
     echo "<script>alert('data berhasil di tambahkan ! ...')</script>";
-    echo "<script>location='data_karyawan.php'</script>";
+    echo "<script>location='data_mes.php'</script>";
 }
 ?>
 
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>DATA KARYAWAN</h2>
+            <h2>DATA MESS</h2>
         </div>
 
         <div class="row clearfix">
             <!-- Table User -->
             <div class="card">
                 <div class="header">
-                    <h2>Table Data Karyawan</h2>
+                    <h2>Table Data Mess</h2>
                     <ul class="header-dropdown">
                         <li>
                             <a href="javascript:void(0);" data-toggle="modal" data-target="#modal_tambah_data">
@@ -49,51 +49,35 @@ if (isset($_POST['simpan'])) {
                                     <div class="modal-body">
 
 
-                                        <label for="nama">Nama Karyawan</label>
+                                        <label for="no_mes">Nomer Mess</label>
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukan nama Karyawan" required>
+                                                <input type="number" name="no_mes" id="no_mes" class="form-control" placeholder="Masukan no mess" required>
                                             </div>
                                         </div>
 
 
-                                        <label for="jabatan">Jabatan</label>
+                                        <label for="no_kamar">Nomer Kamar</label>
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" name="jabatan" id="jabatan" class="form-control" placeholder="Masukan Jabatan" required>
+                                                <input type="number" name="no_kamar" id="no_kamar" class="form-control" placeholder="Masukan Nomer Kamar" required>
                                             </div>
                                         </div>
 
 
-                                        <label for="nik">No Identitas Karyawan</label>
+                                        <label for="kapasitas">Kapasitas</label>
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="number" name="nik" id="nik" class="form-control" placeholder="Masukan No Identitas Karyawan" required>
+                                                <input type="text" name="kapasitas" id="kapasitas" class="form-control" placeholder="Masukan Kapasitas" required>
                                             </div>
                                         </div>
-                                        <label for="alamat">Alamat</label>
+                                        <label for="lokasi">Lokasi</label>
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Masukan Alamat" required>
-                                            </div>
-                                        </div>
-                                        <label for="tlp">No Telpon</label>
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="number" name="tlp" id="tlp" class="form-control" placeholder="Masukan No Telpon" required>
+                                                <input type="text" name="lokasi" id="lokasi" class="form-control" placeholder="Masukan Lokasi" required>
                                             </div>
                                         </div>
 
-
-
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki" value="Laki-Laki">
-                                            <label class="form-check-label" for="laki">Laki-Laki</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
-                                            <label class="form-check-label" for="perempuan">Perempuan</label>
-                                        </div>
 
 
                                     </div>
@@ -115,37 +99,41 @@ if (isset($_POST['simpan'])) {
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Karyawan</th>
-                                    <th>Jenis Kelamin</th>
-                                    <th>No Identitas Karyawan</th>
-                                    <th>Jabatan</th>
-                                    <th>No Telpon</th>
-                                    <th>Alamat</th>
-                                    <th>Aksi</th>
+                                    <th>No Mess</th>
+                                    <th>No Kamar</th>
+                                    <th>Kapasitas</th>
+                                    <th>Lokasi</th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
 
+
+                                <!-- konfigurasi pagination -->
+
+                                <?php
                                 $jumlahDataPerpage = 5;
                                 $result = mysqli_query($koneksi, "SELECT * FROM tbl_mess");
                                 $jumlah_data = mysqli_num_rows($result);
                                 $jumlahHalaman = ceil($jumlah_data / $jumlahDataPerpage);
                                 $halamanAktif = (isset($_GET["p"])) ? $_GET["p"] : 1;
                                 $awalData = ($jumlahDataPerpage * $halamanAktif) - $jumlahDataPerpage;
+
+
+
+
+
                                 $no = 1;
-                                $sql = $koneksi->query("select * from tbl_karyawan");
+                                $sql = $koneksi->query("SELECT * FROM tbl_mess LIMIT $awalData, $jumlahDataPerpage");
                                 while ($data = $sql->fetch_assoc()) {
                                     # code...
                                 ?>
                                     <tr>
                                         <td><?= $no ?></td>
-                                        <td><?= $data['nama'] ?></td>
-                                        <td><?= $data['jenis_kelamin'] ?></td>
-                                        <td><?= $data['nik'] ?></td>
-                                        <td><?= $data['jabatan'] ?></td>
-                                        <td><?= $data['tlp'] ?></td>
-                                        <td><?= $data['alamat'] ?></td>
+                                        <td><?= $data['no_mes'] ?></td>
+                                        <td><?= $data['no_kamar'] ?></td>
+                                        <td><?= $data['kapasitas'] ?></td>
+                                        <td><?= $data['lokasi'] ?></td>
                                         <td>
                                             <a href="master_hapus.php?aksi=hapus_karyawan&id=<?= $data['id_karyawan'] ?>">
                                                 <span></span>
@@ -160,39 +148,43 @@ if (isset($_POST['simpan'])) {
                                 } ?>
                             </tbody>
                         </table>
+
+
                     </div>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination center">
+
+
+                            <li class="page-item">
+                                <?php if ($halamanAktif > 1) : ?>
+                                    <a class="page-link" href="?p=<?= $halamanAktif - 1; ?>" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                <?php endif; ?>
+                            </li>
+
+
+                            <li class="page-item">
+                                <?php for ($i = 1; $i <= $jumlahDataPerpage; $i++) :  ?>
+                                    <a class="page-link" href="?p=<?= $i; ?>"><?= $i; ?></a>
+                                <?php endfor; ?>
+                            </li>
+
+
+                            <li class="page-item">
+                                <?php if ($halamanAktif < $jumlahDataPerpage) : ?>
+                                    <a class="page-link" href="?p=<?= $halamanAktif + 1; ?>" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                <?php endif; ?>
+                            </li>
+
+
+                        </ul>
+                    </nav>
+
                 </div>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination center">
 
-
-                        <li class="page-item">
-                            <?php if ($halamanAktif > 1) : ?>
-                                <a class="page-link" href="?p=<?= $halamanAktif - 1; ?>" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            <?php endif; ?>
-                        </li>
-
-
-                        <li class="page-item">
-                            <?php for ($i = 1; $i <= $jumlahDataPerpage; $i++) :  ?>
-                                <a class="page-link" href="?p=<?= $i; ?>"><?= $i; ?></a>
-                            <?php endfor; ?>
-                        </li>
-
-
-                        <li class="page-item">
-                            <?php if ($halamanAktif < $jumlahDataPerpage) : ?>
-                                <a class="page-link" href="?p=<?= $halamanAktif + 1; ?>" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            <?php endif; ?>
-                        </li>
-
-
-                    </ul>
-                </nav>
             </div>
             <!-- #END# Table User -->
 

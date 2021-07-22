@@ -43,7 +43,7 @@
                              <a href="data_karyawan.php">Data Karyawan</a>
                          </li>
                          <li>
-                             <a href="master_mess.php">Data Mess</a>
+                             <a href="data_mes.php">Data Mess</a>
                          </li>
                      </ul>
                  </li>
