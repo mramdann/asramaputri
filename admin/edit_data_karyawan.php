@@ -17,7 +17,7 @@ if (isset($_POST['simpan'])) {
     $alamat = $_POST['alamat'];
     $tlp = $_POST['tlp'];
 
-    $query = $koneksi->query("UPDATE tbl_karyawan SET nama='$nama',jenis_kelamin='$jenis_kelamin',nik='$nik',jabatan='$jabatan',alamat='$alamat',tlp=$tlp where id_karyawan='$id'");
+    $query = $koneksi->query("UPDATE tbl_karyawan SET nama='$nama',jenis_kelamin='$jenis_kelamin',nik='$nik',jabatan='$jabatan',alamat='$alamat',tlp='$tlp' where id_karyawan='$id'");
     // print_r($query);
     if ($query) {
         echo "<script>alert('Data karyawan berhasil diubah !')</script>";

@@ -37,10 +37,10 @@ if ($aksi == 'hapus_karyawan') {
 if ($aksi == 'hapus_mess') {
 	$id = $_GET['id'];
 
-	$sql = $koneksi->query("DELETE FROM tbl_mess WHERE id_mes= '$id'");
+	$sql = $koneksi->query("DELETE FROM tbl_mess WHERE id_mess= '$id'");
 	if ($sql == '1') {
 		echo "<script>alert('Data berhasil dihapus !')</script>";
-		echo "<script>location='data_mess.php'</script>";
+		echo "<script>location='data_mes.php'</script>";
 	} else {
 		echo "<script>location='data_mes.php'</script>";
 	}

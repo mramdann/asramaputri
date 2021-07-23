@@ -103,6 +103,7 @@ if (isset($_POST['simpan'])) {
                                     <th>No Kamar</th>
                                     <th>Kapasitas</th>
                                     <th>Lokasi</th>
+                                    <th>Aksi</th>
 
                                 </tr>
                             </thead>
@@ -112,19 +113,19 @@ if (isset($_POST['simpan'])) {
                                 <!-- konfigurasi pagination -->
 
                                 <?php
-                                $jumlahDataPerpage = 5;
-                                $result = mysqli_query($koneksi, "SELECT * FROM tbl_mess");
-                                $jumlah_data = mysqli_num_rows($result);
-                                $jumlahHalaman = ceil($jumlah_data / $jumlahDataPerpage);
-                                $halamanAktif = (isset($_GET["p"])) ? $_GET["p"] : 1;
-                                $awalData = ($jumlahDataPerpage * $halamanAktif) - $jumlahDataPerpage;
+                                // $jumlahDataPerpage = 5;
+                                // $result = mysqli_query($koneksi, "SELECT * FROM tbl_mess");
+                                // $jumlah_data = mysqli_num_rows($result);
+                                // $jumlahHalaman = ceil($jumlah_data / $jumlahDataPerpage);
+                                // $halamanAktif = (isset($_GET["p"])) ? $_GET["p"] : 1;
+                                // $awalData = ($jumlahDataPerpage * $halamanAktif) - $jumlahDataPerpage;
 
 
 
 
 
                                 $no = 1;
-                                $sql = $koneksi->query("SELECT * FROM tbl_mess LIMIT $awalData, $jumlahDataPerpage");
+                                $sql = $koneksi->query("SELECT * FROM tbl_mess");
                                 while ($data = $sql->fetch_assoc()) {
                                     # code...
                                 ?>
@@ -135,11 +136,11 @@ if (isset($_POST['simpan'])) {
                                         <td><?= $data['kapasitas'] ?></td>
                                         <td><?= $data['lokasi'] ?></td>
                                         <td>
-                                            <a href="master_hapus.php?aksi=hapus_karyawan&id=<?= $data['id_karyawan'] ?>">
+                                            <a href="master_hapus.php?aksi=hapus_mess&id=<?= $data['id_mess'] ?>">
                                                 <span></span>
                                                 <i class="material-icons">delete_forever</i>
                                             </a>
-                                            <a href="edit_data_karyawan.php?id=<?= $data['id_karyawan'] ?>">
+                                            <a href="edit_data_mess.php?id=<?= $data['id_mess'] ?>">
                                                 <i class="material-icons">edit</i>
                                             </a>
                                         </td>
@@ -151,7 +152,7 @@ if (isset($_POST['simpan'])) {
 
 
                     </div>
-                    <nav aria-label="Page navigation example">
+                    <!-- <nav aria-label="Page navigation example">
                         <ul class="pagination center">
 
 
@@ -181,7 +182,7 @@ if (isset($_POST['simpan'])) {
 
 
                         </ul>
-                    </nav>
+                    </nav> -->
 
                 </div>
 
