@@ -85,11 +85,15 @@ if (isset($_POST['simpan'])) {
                                 </div>
 
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki" value="Laki-Laki">
+                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki" value="Laki-Laki" <?php if ($data['jenis_kelamin'] == "Laki-Laki") {
+                                                                                                                                        echo "checked";
+                                                                                                                                    } ?>>
                                     <label class="form-check-label" for="laki">Laki-Laki</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
+                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan" <?php if ($data['jenis_kelamin'] == "Perempuan") {
+                                                                                                                                            echo "checked";
+                                                                                                                                        } ?>>
                                     <label class="form-check-label" for="perempuan">Perempuan</label>
                                 </div>
 
