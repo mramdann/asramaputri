@@ -6,13 +6,13 @@ include "../koneksi.php";
 // syntax untuk menyimpan data ke database
 if (isset($_POST['simpan'])) {
     $no_mes = $_POST['no_mes'];
-    $no_kamar = $_POST['no_kamar'];
-    $kapasitas = $_POST['kapasitas'];
+    $kamar = $_POST['kamar'];
+    $j_kapasitas - $kapasitas = $_POST['kapasitas'];
     $lokasi = $_POST['lokasi'];
 
 
 
-    $query = $koneksi->query("INSERT INTO tbl_mess (no_mes, no_kamar, kapasitas, lokasi) VALUES ('$no_mes','$no_kamar','$kapasitas','$lokasi')");
+    $query = $koneksi->query("INSERT INTO tbl_mess (no_mes, kamar, kapasitas, lokasi) VALUES ('$no_mes','$kamar','$kapasitas','$lokasi')");
     // print_r($query);
     echo "<script>alert('data berhasil di tambahkan ! ...')</script>";
     echo "<script>location='data_mes.php'</script>";
@@ -57,10 +57,10 @@ if (isset($_POST['simpan'])) {
                                         </div>
 
 
-                                        <label for="no_kamar">Nomer Kamar</label>
+                                        <label for="no_kamar">Jumlah Kamar</label>
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="number" name="no_kamar" id="no_kamar" class="form-control" placeholder="Masukan Nomer Kamar" required>
+                                                <input type="number" name="kamar" id="no_kamar" class="form-control" placeholder="Masukan Jumlah Kamar" required>
                                             </div>
                                         </div>
 
@@ -100,7 +100,7 @@ if (isset($_POST['simpan'])) {
                                 <tr>
                                     <th>No</th>
                                     <th>No Mess</th>
-                                    <th>No Kamar</th>
+                                    <th>Jumlah Kamar</th>
                                     <th>Kapasitas</th>
                                     <th>Lokasi</th>
                                     <th>Aksi</th>
@@ -132,7 +132,7 @@ if (isset($_POST['simpan'])) {
                                     <tr>
                                         <td><?= $no ?></td>
                                         <td><?= $data['no_mes'] ?></td>
-                                        <td><?= $data['no_kamar'] ?></td>
+                                        <td><?= $data['kamar'] ?></td>
                                         <td><?= $data['kapasitas'] ?></td>
                                         <td><?= $data['lokasi'] ?></td>
                                         <td>

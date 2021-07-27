@@ -45,14 +45,14 @@ if ($aksi == 'hapus_mess') {
 		echo "<script>location='data_mes.php'</script>";
 	}
 }
-if ($aksi == 'hapus_trnsaksi') {
+if ($aksi == 'hapus_transaksi') {
 	$id = $_GET['id'];
 
-	$sql = $koneksi->query("DELETE FROM tbl_karyawan WHERE id_transaksi= '$id'");
+	$sql = $koneksi->query("DELETE FROM tbl_mess WHERE id_transaksi= '$id'");
 	if ($sql == '1') {
 		echo "<script>alert('Data berhasil dihapus !')</script>";
-		echo "<script>location='data_mes.php'</script>";
+		echo "<script>location='trans_karyawan.php'</script>";
 	} else {
-		echo "<script>location='data_mes.php'</script>";
+		echo "<script>location='trans_karyawan.php'</script>";
 	}
 }

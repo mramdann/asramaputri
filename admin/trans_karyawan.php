@@ -8,12 +8,13 @@ include "../koneksi.php";
 if (isset($_POST['simpan'])) {
     $no_mes = $_POST['no_mes'];
     $no_kamar = $_POST['no_kamar'];
+    $no_kamar = $_POST['id_transaksi'];
     $kapasitas = $_POST['kapasitas'];
     $lokasi = $_POST['lokasi'];
 
 
 
-    $query = $koneksi->query("INSERT INTO tbl_mess (no_mes, no_kamar, kapasitas, lokasi) VALUES ('$no_mes','$no_kamar','$kapasitas','$lokasi')");
+    $query = $koneksi->query("INSERT INTO tbl_mess (no_mes, no_kamar, kapasitas, lokasi, id_transaksi) VALUES ('$no_mes','$no_kamar','$kapasitas','$lokasi','$id_transaksi')");
     // print_r($query);
     echo "<script>alert('data berhasil di tambahkan ! ...')</script>";
     echo "<script>location='data_mes.php'</script>";
@@ -44,42 +45,68 @@ if (isset($_POST['simpan'])) {
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h4 class="modal-title" id="defaultModalLabel">Tambah data Karyawan</h4>
+                                    <h4 class="modal-title" id="defaultModalLabel">Tambah data Mess Karyawan</h4>
                                 </div>
+
+
+
                                 <form method="POST">
                                     <div class="modal-body">
 
 
-                                        <label for="no_mes">Nomer Mess</label>
+                                        <label for="no_mes">Nama Karyawan</label>
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="number" name="no_mes" id="no_mes" class="form-control" placeholder="Masukan no mess" required>
+                                                <select class="form-control" id="exampleFormControlSelect1">
+                                                    <option selected>Nama Karyawan</option>
+                                                    <?php
+                                                    $sql = $koneksi->query("SELECT * FROM tbl_karyawan");
+                                                    while ($data = $sql->fetch_assoc()) {
+                                                        # code...
+                                                    ?>
+                                                        <option><?= $data['nama'] . " - " . $data['jabatan'] . " - " . $data['jenis_kelamin'] ?></option>
+                                                    <?php
+                                                    } ?>
+                                                </select>
                                             </div>
                                         </div>
 
 
-                                        <label for="no_kamar">Nomer Kamar</label>
+                                        <label for="lokasi">No mess</label>
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="number" name="no_kamar" id="no_kamar" class="form-control" placeholder="Masukan Nomer Kamar" required>
+                                                <select class="form-control" id="exampleFormControlSelect1">
+                                                    <option selected>Pilih No Mess</option>
+                                                    <?php
+                                                    $sql = $koneksi->query("SELECT * FROM tbl_mess");
+                                                    while ($data = $sql->fetch_assoc()) {
+                                                        # code...
+
+                                                    ?>
+                                                        <option><?= $data['no_mes'] . " - " . $data['kapasitas'] . " - " . $data['lokasi'] ?></option>
+
+                                                    <?php
+                                                    } ?>
+                                                </select>
                                             </div>
                                         </div>
 
-
-                                        <label for="kapasitas">Kapasitas</label>
+                                        <label for="lokasi">NO Kamar</label>
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" name="kapasitas" id="kapasitas" class="form-control" placeholder="Masukan Kapasitas" required>
+                                                <select class="form-control" id="exampleFormControlSelect1">
+                                                    <option selected>Pilih No Kamar</option>
+
+                                                    <?php
+                                                    for ($no = 1; $no
+                                                        <= 20; $kata++) {
+                                                        echo "<option>$no</option>" . "<br />";
+                                                    }
+                                                    ?>
+
+                                                </select>
                                             </div>
                                         </div>
-                                        <label for="lokasi">Lokasi</label>
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" name="lokasi" id="lokasi" class="form-control" placeholder="Masukan Lokasi" required>
-                                            </div>
-                                        </div>
-
-
 
                                     </div>
 
@@ -88,6 +115,8 @@ if (isset($_POST['simpan'])) {
                                         <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                                     </div>
                                 </form>
+
+
                             </div>
                         </div>
                     </div>

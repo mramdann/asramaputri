@@ -1,6 +1,6 @@
-<?php 
+<?php
 session_start();
-if(empty($_SESSION['admin'])){
+if (empty($_SESSION['admin'])) {
     echo "<script>location='../login.php'</script>";
 }
 ?>
@@ -33,6 +33,10 @@ if(empty($_SESSION['admin'])){
 
     <!-- Custom Css -->
     <link href="../assets/css/style.css" rel="stylesheet">
+    <!-- select Css -->
+    <link href="../assets/css/bootstrap-select.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-select.css.map" rel="stylesheet">
+    <link href="../assets/css/bootstrap-select.min.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="../assets/css/themes/all-themes.css" rel="stylesheet" />

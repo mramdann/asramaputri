@@ -5,6 +5,7 @@ include "../koneksi.php";
 
 // syntax untuk menyimpan data ke database
 $id = $_GET['id'];
+
 if (isset($_POST['simpan'])) {
     $no_mes = $_POST['no_mes'];
     $no_kamar = $_POST['no_kamar'];
@@ -47,7 +48,7 @@ if (isset($_POST['simpan'])) {
 
                                         <th>Nama Karyawan</th>
                                         <th>Jenis Kelamin</th>
-                                        <th>No kamar</th>
+
                                         <th>Aksi</th>
 
                                     </tr>
@@ -59,9 +60,9 @@ if (isset($_POST['simpan'])) {
                                     <!-- konfigurasi pagination -->
 
                                     <?php
-
+                                    $id = $_GET['id'];
                                     $no = 1;
-                                    $sql = $koneksi->query("SELECT * FROM tbl_mess join tbl_karyawan on tbl_mess.id_transaksi = tbl_karyawan.id_transaksi WHERE id_mess= '$id'");
+                                    $sql = $koneksi->query("SELECT * FROM tbl_mess JOIN tbl_karyawan ON tbl_mess.id_transaksi = tbl_karyawan.id_transaksi  WHERE id_mess= '$id'");
                                     while ($data = $sql->fetch_assoc()) {
                                         # code...
 
@@ -73,13 +74,13 @@ if (isset($_POST['simpan'])) {
 
                                             <td><?= $data['nama'] ?></td>
                                             <td><?= $data['jenis_kelamin'] ?></td>
-                                            <td><?= $data['no_kamar'] ?></td>
+
                                             <td>
                                                 <a href="master_hapus.php?aksi=hapus_transaksi&id=<?= $data['id_karyawan'] ?>">
                                                     <span></span>
                                                     <i class="material-icons">delete_forever</i>
                                                 </a>
-                                                <a href="edit_data_mess.php?id=<?= $data['id_mess'] ?>">
+                                                <a href="edit_data_mess.php?id=<?= $data['id_transaksi'] ?>">
                                                     <i class="material-icons">edit</i>
                                                 </a>
 

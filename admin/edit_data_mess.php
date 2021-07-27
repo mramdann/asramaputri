@@ -11,15 +11,15 @@ include "../koneksi.php";
 $id = $_GET['id'];
 if (isset($_POST['simpan'])) {
     $no_mes = $_POST['no_mes'];
-    $no_kamar = $_POST['no_kamar'];
+    $kamar = $_POST['kamar'];
     $kapasitas = $_POST['kapasitas'];
     $lokasi = $_POST['lokasi'];
 
 
 
-    $query = $koneksi->query("UPDATE tbl_mess SET no_mes='$no_mes', no_kamar='$no_kamar' ,kapasitas='$kapasitas',lokasi='$lokasi' where id_mess='$id'");
+    $query = $koneksi->query("UPDATE tbl_mess SET no_mes='$no_mes', kamar='$kamar' ,kapasitas='$kapasitas',lokasi='$lokasi' where id_mess='$id'");
     // var_dump($query);
-    echo "<script>alert('data berhasil di tambahkan ! ...')</script>";
+    echo "<script>alert('data berhasil di ubah ! ...')</script>";
     echo "<script>location='data_mes.php'</script>";
 }
 ?>
@@ -58,7 +58,7 @@ if (isset($_POST['simpan'])) {
                                 <label for=" no_kamar">Nomer Kamar</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="number" name="no_kamar" id="no_kamar" class="form-control" value="<?= $data['no_kamar'] ?>" required>
+                                        <input type="number" name="kamar" id="no_kamar" class="form-control" value="<?= $data['kamar'] ?>" required>
                                     </div>
                                 </div>
 
