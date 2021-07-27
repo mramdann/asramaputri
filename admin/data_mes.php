@@ -7,7 +7,7 @@ include "../koneksi.php";
 if (isset($_POST['simpan'])) {
     $no_mes = $_POST['no_mes'];
     $kamar = $_POST['kamar'];
-    $j_kapasitas - $kapasitas = $_POST['kapasitas'];
+    $kapasitas = $_POST['kapasitas'];
     $lokasi = $_POST['lokasi'];
 
 

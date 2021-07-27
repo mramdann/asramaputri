@@ -87,12 +87,12 @@ if (isset($_POST['simpan'])) {
 							</thead>
 							<tbody>
 								<?php
-								$jumlahDataPerpage = 5;
-								$result = mysqli_query($koneksi, "SELECT * FROM tbl_user ");
-								$jumlah_data = mysqli_num_rows($result);
-								$jumlahHalaman = ceil($jumlah_data / $jumlahDataPerpage);
-								$halamanAktif = (isset($_GET["p"])) ? $_GET["p"] : 1;
-								$awalData = ($jumlahDataPerpage * $halamanAktif) - $jumlahDataPerpage;
+								// $jumlahDataPerpage = 5;
+								// $result = mysqli_query($koneksi, "SELECT * FROM tbl_user ");
+								// $jumlah_data = mysqli_num_rows($result);
+								// $jumlahHalaman = ceil($jumlah_data / $jumlahDataPerpage);
+								// $halamanAktif = (isset($_GET["p"])) ? $_GET["p"] : 1;
+								// $awalData = ($jumlahDataPerpage * $halamanAktif) - $jumlahDataPerpage;
 
 								$no = 1;
 								$sql = $koneksi->query("select * from tbl_user LIMIT $awalData, $jumlahDataPerpage");
@@ -119,7 +119,7 @@ if (isset($_POST['simpan'])) {
 						</table>
 					</div>
 
-					<nav aria-label="Page navigation example">
+					<!-- <nav aria-label="Page navigation example">
 						<ul class="pagination center">
 
 
@@ -145,7 +145,7 @@ if (isset($_POST['simpan'])) {
 
 
 						</ul>
-					</nav>
+					</nav> -->
 
 				</div>
 

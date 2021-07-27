@@ -6,18 +6,17 @@ include "../koneksi.php";
 // syntax untuk menyimpan data ke database
 
 if (isset($_POST['simpan'])) {
-    $no_mes = $_POST['no_mes'];
+    $id_mess = $_POST['id_mess'];
     $no_kamar = $_POST['no_kamar'];
-    $no_kamar = $_POST['id_transaksi'];
-    $kapasitas = $_POST['kapasitas'];
-    $lokasi = $_POST['lokasi'];
+    $id_karyawan = $_POST['id_karyawan'];
 
 
 
-    $query = $koneksi->query("INSERT INTO tbl_mess (no_mes, no_kamar, kapasitas, lokasi, id_transaksi) VALUES ('$no_mes','$no_kamar','$kapasitas','$lokasi','$id_transaksi')");
-    // print_r($query);
+
+    $query = $koneksi->query("INSERT INTO tbl_trans (id_mess, no_kamar, id_karyawan) VALUES ('$id_mess','$no_kamar','$id_karyawan')");
+
     echo "<script>alert('data berhasil di tambahkan ! ...')</script>";
-    echo "<script>location='data_mes.php'</script>";
+    echo "<script>location='trans_karyawan.php'</script>";
 }
 ?>
 
@@ -57,14 +56,14 @@ if (isset($_POST['simpan'])) {
                                         <label for="no_mes">Nama Karyawan</label>
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <select class="form-control" id="exampleFormControlSelect1">
+                                                <select class="form-control" name="id_karyawan" id="id_karyawan">
                                                     <option selected>Nama Karyawan</option>
                                                     <?php
                                                     $sql = $koneksi->query("SELECT * FROM tbl_karyawan");
                                                     while ($data = $sql->fetch_assoc()) {
                                                         # code...
                                                     ?>
-                                                        <option><?= $data['nama'] . " - " . $data['jabatan'] . " - " . $data['jenis_kelamin'] ?></option>
+                                                        <option value="<?= $data['id_karyawan'] ?>"><?= $data['nama'] . " - " . $data['jabatan'] . " - " . $data['jenis_kelamin'] ?></option>
                                                     <?php
                                                     } ?>
                                                 </select>
@@ -75,16 +74,14 @@ if (isset($_POST['simpan'])) {
                                         <label for="lokasi">No mess</label>
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <select class="form-control" id="exampleFormControlSelect1">
+                                                <select class="form-control" name="id_mess" id="id_mess">
                                                     <option selected>Pilih No Mess</option>
                                                     <?php
                                                     $sql = $koneksi->query("SELECT * FROM tbl_mess");
                                                     while ($data = $sql->fetch_assoc()) {
                                                         # code...
-
                                                     ?>
-                                                        <option><?= $data['no_mes'] . " - " . $data['kapasitas'] . " - " . $data['lokasi'] ?></option>
-
+                                                        <option value="<?= $data['id_mess'] ?>"><?= $data['no_mes'] . " - " . $data['kapasitas'] . " - " . $data['lokasi'] ?></option>
                                                     <?php
                                                     } ?>
                                                 </select>
@@ -94,12 +91,12 @@ if (isset($_POST['simpan'])) {
                                         <label for="lokasi">NO Kamar</label>
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <select class="form-control" id="exampleFormControlSelect1">
+                                                <select class="form-control" name="no_kamar" id="no_kamar">
                                                     <option selected>Pilih No Kamar</option>
 
                                                     <?php
                                                     for ($no = 1; $no
-                                                        <= 20; $kata++) {
+                                                        <= 20; $no++) {
                                                         echo "<option>$no</option>" . "<br />";
                                                     }
                                                     ?>
@@ -130,9 +127,10 @@ if (isset($_POST['simpan'])) {
                                 <tr>
                                     <th>No</th>
 
-                                    <th>Nomber Mess</th>
+                                    <th>No Mess</th>
                                     <th>Kapasitas</th>
                                     <th>Lokasi</th>
+                                    <th>Di Tempati</th>
                                     <th>Aksi</th>
 
                                 </tr>
@@ -143,6 +141,13 @@ if (isset($_POST['simpan'])) {
                                 <!-- konfigurasi pagination -->
 
                                 <?php
+
+                                $result = mysqli_query($koneksi, "SELECT * FROM tbl_trans ORDER BY id_mess ");
+                                $jumlah_data = mysqli_num_rows($result);
+                                // $tetap =  ($jumlah_data['id_mess'] - $sql);
+
+
+
 
                                 $no = 1;
                                 $sql = $koneksi->query("SELECT * FROM tbl_mess");
@@ -156,6 +161,7 @@ if (isset($_POST['simpan'])) {
                                         <td><?= $data['no_mes'] ?></td>
                                         <td><?= $data['kapasitas'] ?></td>
                                         <td><?= $data['lokasi'] ?></td>
+                                        <td><?= $jumlah_data ?> </td>
                                         <td>
                                             <a href="master_hapus.php?aksi=hapus_mess&id=<?= $data['id_mess'] ?>">
                                                 <span></span>

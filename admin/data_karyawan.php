@@ -60,7 +60,13 @@ if (isset($_POST['simpan'])) {
                                         <label for="jabatan">Jabatan</label>
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" name="jabatan" id="jabatan" class="form-control" placeholder="Masukan Jabatan" required>
+                                                <select class="form-control" name="jabatan" id="jabatan">
+                                                    <option selected> </option>
+                                                    <option>oprator</option>
+                                                    <option>produksi</option>
+                                                    <option>kadip</option>
+                                                    <option>admin</option>
+                                                </select>
                                             </div>
                                         </div>
 
@@ -85,7 +91,7 @@ if (isset($_POST['simpan'])) {
                                         </div>
 
 
-
+                                        <label for="nik">Jenis Kelamin</label>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki" value="Laki-Laki">
                                             <label class="form-check-label" for="laki">Laki-Laki</label>
@@ -125,14 +131,8 @@ if (isset($_POST['simpan'])) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
 
-                                $jumlahDataPerpage = 5;
-                                $result = mysqli_query($koneksi, "SELECT * FROM tbl_mess");
-                                $jumlah_data = mysqli_num_rows($result);
-                                $jumlahHalaman = ceil($jumlah_data / $jumlahDataPerpage);
-                                $halamanAktif = (isset($_GET["p"])) ? $_GET["p"] : 1;
-                                $awalData = ($jumlahDataPerpage * $halamanAktif) - $jumlahDataPerpage;
+                                <?php
                                 $no = 1;
                                 $sql = $koneksi->query("select * from tbl_karyawan");
                                 while ($data = $sql->fetch_assoc()) {
@@ -162,37 +162,7 @@ if (isset($_POST['simpan'])) {
                         </table>
                     </div>
                 </div>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination center">
 
-
-                        <li class="page-item">
-                            <?php if ($halamanAktif > 1) : ?>
-                                <a class="page-link" href="?p=<?= $halamanAktif - 1; ?>" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            <?php endif; ?>
-                        </li>
-
-
-                        <li class="page-item">
-                            <?php for ($i = 1; $i <= $jumlahDataPerpage; $i++) :  ?>
-                                <a class="page-link" href="?p=<?= $i; ?>"><?= $i; ?></a>
-                            <?php endfor; ?>
-                        </li>
-
-
-                        <li class="page-item">
-                            <?php if ($halamanAktif < $jumlahDataPerpage) : ?>
-                                <a class="page-link" href="?p=<?= $halamanAktif + 1; ?>" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            <?php endif; ?>
-                        </li>
-
-
-                    </ul>
-                </nav>
             </div>
             <!-- #END# Table User -->
 

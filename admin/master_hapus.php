@@ -48,7 +48,7 @@ if ($aksi == 'hapus_mess') {
 if ($aksi == 'hapus_transaksi') {
 	$id = $_GET['id'];
 
-	$sql = $koneksi->query("DELETE FROM tbl_mess WHERE id_transaksi= '$id'");
+	$sql = $koneksi->query("DELETE FROM tbl_trans WHERE id_trans= '$id'");
 	if ($sql == '1') {
 		echo "<script>alert('Data berhasil dihapus !')</script>";
 		echo "<script>location='trans_karyawan.php'</script>";

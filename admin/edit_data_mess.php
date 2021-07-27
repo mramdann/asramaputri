@@ -55,7 +55,7 @@ if (isset($_POST['simpan'])) {
                                 </div>
 
 
-                                <label for=" no_kamar">Nomer Kamar</label>
+                                <label for=" no_kamar">Jumlah Kamar</label>
                                 <div class="form-group">
                                     <div class="form-line">
                                         <input type="number" name="kamar" id="no_kamar" class="form-control" value="<?= $data['kamar'] ?>" required>
