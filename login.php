@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -56,22 +56,22 @@ session_start();
                         <center><button class="btn btn-lg bg-pink waves-effect" name="login" type="submit">SIGN IN</button></center>
                     </div>
                 </form>
-                <?php 
+                <?php
                 include "koneksi.php";
-                if(isset($_POST['login'])){
+                if (isset($_POST['login'])) {
                     $username = $_POST['username'];
                     $pass = $_POST['pass'];
 
                     $sql = $koneksi->query("SELECT * FROM tbl_user WHERE username='$username' AND pass='$pass'");
                     $result = $sql->num_rows;
 
-                    if($result == 1){
+                    if ($result == 1) {
                         $admin = $sql->fetch_assoc();
                         $_SESSION['admin'] = $admin;
 
                         echo "<script>alert('Login Berhasil ! ...')</script>";
                         echo "<script>location='admin/'</script>";
-                    }else{
+                    } else {
                         echo "<script>alert('Login Gagal ! ...')</script>";
                         echo "<script>location='login.php'</script>";
                     }
