@@ -122,6 +122,7 @@ if (isset($_POST['simpan'])) {
                 </div>
                 <div class="body">
                     <div class="table-responsive">
+
                         <table class="table table-hover dashboard-task-infos">
                             <thead>
                                 <tr>
@@ -137,13 +138,11 @@ if (isset($_POST['simpan'])) {
                             </thead>
                             <tbody>
 
-
                                 <!-- konfigurasi pagination -->
 
                                 <?php
 
-                                $result = mysqli_query($koneksi, "SELECT * FROM tbl_trans ORDER BY id_mess ");
-                                $jumlah_data = mysqli_num_rows($result);
+
                                 // $tetap =  ($jumlah_data['id_mess'] - $sql);
 
 
@@ -153,6 +152,9 @@ if (isset($_POST['simpan'])) {
                                 $sql = $koneksi->query("SELECT * FROM tbl_mess");
                                 while ($data = $sql->fetch_assoc()) {
                                     # code...
+                                    $id_mess = $data['id_mess'];
+                                    $result = mysqli_query($koneksi, "SELECT * FROM tbl_trans WHERE id_mess='$id_mess'");
+                                    $jumlah_data = mysqli_num_rows($result);
 
                                 ?>
                                     <tr>
