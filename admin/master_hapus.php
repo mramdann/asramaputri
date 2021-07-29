@@ -56,3 +56,14 @@ if ($aksi == 'hapus_transaksi') {
 		echo "<script>location='trans_karyawan.php'</script>";
 	}
 }
+if ($aksi == 'hapus_transaksi') {
+	$id = $_GET['id'];
+
+	$sql = $koneksi->query("DELETE FROM tbl_trans WHERE id_trans= '$id'");
+	if ($sql == '1') {
+		echo "<script>alert('Data berhasil dihapus !')</script>";
+		echo "<script>location='trans_karyawan.php'</script>";
+	} else {
+		echo "<script>location='trans_karyawan.php'</script>";
+	}
+}

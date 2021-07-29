@@ -57,11 +57,9 @@
                              <a href="trans_karyawan.php">Karyawan - Mess</a>
                          </li>
                          <li>
-                             <a href="trans_keluar">Izin Keluar</a>
+                             <a href="trans_keluar.php">Izin Keluar</a>
                          </li>
-                         <li>
-                             <a href="trans_masuk">Izin Masuk</a>
-                         </li>
+
                      </ul>
                  </li>
                  <li>
