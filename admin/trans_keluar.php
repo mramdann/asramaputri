@@ -14,9 +14,9 @@ if (isset($_POST['simpan'])) {
     $catatan = $_POST['catatan'];
     $waktu_masuk = $_POST['waktu_masuk'];
     $waktu_keluar = $_POST['waktu_keluar'];
+    $status_ijin = 'Menunggu Persetujuan..!';
 
-
-    $query = $koneksi->query("INSERT INTO tbl_ijin (id_karyawan, tujuan, catatan, waktu_masuk, waktu_keluar) VALUES ('$id_karyawan','$tujuan','$catatan','$waktu_masuk','$waktu_keluar')");
+    $query = $koneksi->query("INSERT INTO tbl_ijin (id_karyawan, tujuan, catatan, waktu_masuk, waktu_keluar, status_ijin) VALUES ('$id_karyawan','$tujuan','$catatan','$waktu_masuk','$waktu_keluar','$status_ijin')");
 
     echo "<script>alert('data berhasil di tambahkan ! ...')</script>";
     echo "<script>location='trans_keluar.php'</script>";
@@ -155,7 +155,7 @@ if (isset($_POST['simpan'])) {
                                             <td><?= $data['waktu_keluar'] ?> </td>
                                             <td><?= $data['status_ijin'] ?></td>
                                             <td>
-                                                <a href="master_aksi.php?aksi=hapus_mess&id=<?= $data['id_ijin'] ?>">
+                                                <a href="master_aksi.php?aksi=hapus_ijin&id=<?= $data['id_ijin'] ?>">
                                                     <span></span>
                                                     <i class="material-icons">delete_forever</i>
                                                 </a>
