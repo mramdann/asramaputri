@@ -67,3 +67,40 @@ if ($aksi == 'hapus_transaksi') {
 		echo "<script>location='trans_karyawan.php'</script>";
 	}
 }
+
+
+if ($aksi == 'hapus_ijin') {
+	$id = $_GET['id'];
+	$status_ijin = 'Di Tolak';
+	$sql = $koneksi->query("DELETE FROM tbl_ijin WHERE id_ijin='$id'");
+	if ($sql == '1') {
+		echo "<script>alert('Data berhasil diterima !')</script>";
+		echo "<script>location='trans_keluar.php'</script>";
+	} else {
+		echo "<script>location='trans_keluar.php'</script>";
+	}
+}
+
+if ($aksi == 'terima') {
+	$id = $_GET['id'];
+	$status_ijin = 'Terima';
+	$sql = $koneksi->query("UPDATE tbl_ijin SET status_ijin='$status_ijin' WHERE id_ijin='$id'");
+	if ($sql == '1') {
+		echo "<script>alert('Data diterima !')</script>";
+		echo "<script>location='trans_keluar.php'</script>";
+	} else {
+		echo "<script>location='trans_keluar.php'</script>";
+	}
+}
+
+if ($aksi == 'tolak') {
+	$id = $_GET['id'];
+	$status_ijin = 'Di Tolak';
+	$sql = $koneksi->query("UPDATE tbl_ijin SET status_ijin='$status_ijin' WHERE id_ijin='$id'");
+	if ($sql == '1') {
+		echo "<script>alert('Data ditolak !')</script>";
+		echo "<script>location='trans_keluar.php'</script>";
+	} else {
+		echo "<script>location='trans_keluar.php'</script>";
+	}
+}

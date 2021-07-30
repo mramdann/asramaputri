@@ -147,7 +147,7 @@ if (isset($_POST['simpan'])) {
                                         <td><?= $data['tlp'] ?></td>
                                         <td><?= $data['alamat'] ?></td>
                                         <td>
-                                            <a href="master_hapus.php?aksi=hapus_karyawan&id=<?= $data['id_karyawan'] ?>">
+                                            <a href="master_aksi.php?aksi=hapus_karyawan&id=<?= $data['id_karyawan'] ?>">
                                                 <span></span>
                                                 <i class="material-icons">delete_forever</i>
                                             </a>

@@ -104,7 +104,7 @@ if (isset($_POST['simpan'])) {
 										<td><?= $data['username'] ?></td>
 										<td><?= $data['nama_user'] ?></td>
 										<td>
-											<a href="master_hapus.php?aksi=hapus&id=<?= $data['id_user'] ?>">
+											<a href="master_aksi.php?aksi=hapus&id=<?= $data['id_user'] ?>">
 												<span></span>
 												<i class="material-icons">delete_forever</i>
 											</a>

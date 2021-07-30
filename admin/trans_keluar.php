@@ -1,4 +1,7 @@
 <?php
+
+
+
 include "_header.php";
 include "_menu.php";
 include "../koneksi.php";
@@ -18,7 +21,10 @@ if (isset($_POST['simpan'])) {
     echo "<script>alert('data berhasil di tambahkan ! ...')</script>";
     echo "<script>location='trans_keluar.php'</script>";
 }
+
+
 ?>
+
 
 <section class="content">
     <div class="container-fluid">
@@ -149,16 +155,16 @@ if (isset($_POST['simpan'])) {
                                             <td><?= $data['waktu_keluar'] ?> </td>
                                             <td><?= $data['status_ijin'] ?></td>
                                             <td>
-                                                <a href="master_hapus.php?aksi=hapus_mess&id=<?= $data['id_mess'] ?>">
+                                                <a href="master_aksi.php?aksi=hapus_mess&id=<?= $data['id_ijin'] ?>">
                                                     <span></span>
                                                     <i class="material-icons">delete_forever</i>
                                                 </a>
 
-                                                <a href="master_hapus.php?aksi=hapus_mess&id=<?= $data['id_mess'] ?>">
+                                                <a href="master_aksi.php?aksi=terima&id=<?= $data['id_ijin'] ?>">
                                                     <span></span>
                                                     <i class="material-icons">done</i>
                                                 </a>
-                                                <a href="master_hapus.php?aksi=hapus_mess&id=<?= $data['id_mess'] ?>">
+                                                <a href="master_aksi.php?aksi=tolak&id=<?= $data['id_ijin'] ?>">
                                                     <span></span>
                                                     <i class="material-icons">clear</i>
                                                 </a>
@@ -181,6 +187,8 @@ if (isset($_POST['simpan'])) {
             </div>
         </div>
 </section>
+
+
 
 <?php
 include "_footer.php";

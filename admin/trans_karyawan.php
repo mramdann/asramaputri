@@ -165,7 +165,7 @@ if (isset($_POST['simpan'])) {
                                         <td><?= $data['lokasi'] ?></td>
                                         <td><?= $jumlah_data ?> </td>
                                         <td>
-                                            <a href="master_hapus.php?aksi=hapus_mess&id=<?= $data['id_mess'] ?>">
+                                            <a href="master_aksi.php?aksi=hapus_mess&id=<?= $data['id_mess'] ?>">
                                                 <span></span>
                                                 <i class="material-icons">delete_forever</i>
                                             </a>
