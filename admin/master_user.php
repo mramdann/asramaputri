@@ -95,7 +95,7 @@ if (isset($_POST['simpan'])) {
 								// $awalData = ($jumlahDataPerpage * $halamanAktif) - $jumlahDataPerpage;
 
 								$no = 1;
-								$sql = $koneksi->query("select * from tbl_user LIMIT $awalData, $jumlahDataPerpage");
+								$sql = $koneksi->query("select * from tbl_user ");
 								while ($data = $sql->fetch_assoc()) {
 									# code...
 								?>
