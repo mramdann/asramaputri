@@ -4,6 +4,8 @@ include "koneksi.php";
 
 ?>
 
+
+<!--================ End Home Banner Area =================-->
 <section class="home_banner_area">
     <div class="banner_inner">
         <div class="container">
@@ -11,8 +13,8 @@ include "koneksi.php";
                 <div class="col-lg-7">
                     <div class="banner_content">
                         <h3 class="text-uppercase">Hell0</h3>
-                        <h1 class="text-uppercase">I am rahi satner</h1>
-                        <h5 class="text-uppercase">senior wordpress developer</h5>
+                        <h1 class="text-uppercase">Welcome Asrama Putri</h1>
+                        <h5 class="text-uppercase">PT Elegant Textile Industri</h5>
                         <div class="d-flex align-items-center">
                             <a class="primary_btn" href="#"><span>Hire Me</span></a>
                             <a class="primary_btn tr-bg" href="#"><span>Get CV</span></a>
@@ -28,8 +30,6 @@ include "koneksi.php";
         </div>
     </div>
 </section>
-<!--================ End Home Banner Area =================-->
-
 <!--================ Start About Us Area =================-->
 <section class="about_area section_gap">
     <div class="container">
@@ -306,30 +306,7 @@ include "koneksi.php";
 <!--================ End Testimonial Area =================-->
 
 <!--================ Start Newsletter Area =================-->
-<section class="newsletter_area">
-    <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-lg-12">
-                <div class="subscription_box text-center">
-                    <h2 class="text-uppercase text-white">get update from anywhere</h2>
-                    <p class="text-white">
-                        Bearing Void gathering light light his eavening unto dont afraid.
-                    </p>
-                    <div class="subcribe-form" id="mc_embed_signup">
-                        <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscription relative">
-                            <input name="EMAIL" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required="" type="email">
-                            <div style="position: absolute; left: -5000px;">
-                                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                            </div>
-                            <button class="primary-btn hover d-inline">Get Started</button>
-                            <div class="info"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <?php
 include  "footer.php";
