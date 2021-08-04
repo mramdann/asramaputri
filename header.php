@@ -43,6 +43,8 @@
                             <li class="nav-item active"><a class="nav-link" href="http://localhost/asramaputri/">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="trans_ijin_keluar_mes.php">Ijin Keluar</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+
+
                         </ul>
                     </div>
                 </div>
