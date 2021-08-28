@@ -1,48 +1,30 @@
-<!-- Jquery Core Js -->
-<script src="../assets/plugins/jquery/jquery.min.js"></script>
+</div>
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; PT. Elegant Textile Industri Purwakarta <script>
+                    document.write(new Date().getFullYear());
+                </script> - developed by
+                <b>Nisa Nurul</b>
+            </span>
+        </div>
+    </div>
+</footer>
+<!-- Footer -->
+</div>
+</div>
 
-<!-- Bootstrap Core Js -->
-<script src="../assets/plugins/bootstrap/js/bootstrap.js"></script>
+<!-- Scroll to top -->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
 
-<!-- Select Plugin Js -->
-<script src="../assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+<script src="../assets/vendor/jquery/jquery.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="../assets/js/ruang-admin.min.js"></script>
 
-<!-- Slimscroll Plugin Js -->
-<script src="../assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-
-<!-- Waves Effect Plugin Js -->
-<script src="../assets/plugins/node-waves/waves.js"></script>
-
-<!-- Jquery CountTo Plugin Js -->
-<script src="../assets/plugins/jquery-countto/jquery.countTo.js"></script>
-
-<!-- Morris Plugin Js -->
-<script src="../assets/plugins/raphael/raphael.min.js"></script>
-<script src="../assets/plugins/morrisjs/morris.js"></script>
-
-<!-- ChartJs -->
-<script src="../assets/plugins/chartjs/Chart.bundle.js"></script>
-
-<!-- Flot Charts Plugin Js -->
-<script src="../assets/plugins/flot-charts/jquery.flot.js"></script>
-<script src="../assets/plugins/flot-charts/jquery.flot.resize.js"></script>
-<script src="../assets/plugins/flot-charts/jquery.flot.pie.js"></script>
-<script src="../assets/plugins/flot-charts/jquery.flot.categories.js"></script>
-<script src="../assets/plugins/flot-charts/jquery.flot.time.js"></script>
-
-<!-- Sparkline Chart Plugin Js -->
-<script src="../assets/plugins/jquery-sparkline/jquery.sparkline.js"></script>
-
-<!-- Custom Js -->
-<script src="../assets/js/admin.js"></script>
-<script src="../assets/js/pages/index.js"></script>
-
-<!-- Demo Js -->
-<script src="../assets/js/bootstrap-select.js"></script>
-<script src="../assets/js/bootstrap-select.js.map"></script>
-<script src="../assets/js/bootstrap-select.min.js"></script>
-<script src="../assets/js/bootstrap-select.min.js.map"></script>
-<script src="../assets/js/demo.js"></script>
 </body>
 
 </html>
