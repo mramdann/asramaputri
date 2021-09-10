@@ -32,7 +32,6 @@ include "../koneksi.php";
                         <tr>
                             <th> No </th>
                             <th> Username </th>
-                            <th> Password </th>
                             <th> Nama User </th>
                             <th> Aksi </th>
                         </tr>
@@ -45,7 +44,6 @@ include "../koneksi.php";
                             <tr>
                                 <td> <?= $no ?> </td>
                                 <td> <?= $data['username'] ?> </td>
-                                <td> <?= $data['pass'] ?> </td>
                                 <td> <?= $data['nama_user'] ?> </td>
                                 <td>
                                     <a href="user.php?aksi=Hapus&id=<?= $data['id_user'] ?>" onclick="return confirm('Yakin akan mengahapus data ini ?')" class="btn btn-sm btn-danger">Hapus</a>
